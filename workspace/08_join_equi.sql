@@ -11,7 +11,7 @@ where e.dno = d.dno and d.loc = l.loc and e.ename='KING';
 
 select eno, ename, d.dno, dname, l.loc, cityname 
 from employee e 
-join department d on(e.dno = d.dno) 
+(inner)join department d on(e.dno = d.dno) 
 join loc l on(d.loc = l.loc);
 
 select eno, ename, dno, dname, loc, cityname 
