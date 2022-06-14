@@ -4,9 +4,10 @@ select eno, ename, d.dno, dname from employee e join department d on(e.dno = d.d
 select eno, ename, dno, dname from employee join department using(dno); -- join using(셀)
 select eno, ename, dno, dname from employee natural join department; -- 같은 셀이 여러 종류일 때 꼬인다
 
+-- equi test
 select eno, ename, d.dno, dname, l.loc, cityname 
 from employee e, department d, loc l 
-where e.dno = d.dno and d.loc = l.loc;
+where e.dno = d.dno and d.loc = l.loc and e.ename='KING';
 
 select eno, ename, d.dno, dname, l.loc, cityname 
 from employee e 
