@@ -1,5 +1,4 @@
 -- equi join
-
 select eno, ename, d.dno, dname from employee e, department d where e.dno = d.dno; -- where
 select eno, ename, d.dno, dname from employee e join department d on(e.dno = d.dno); -- join on(조건)
 select eno, ename, dno, dname from employee join department using(dno); -- join using(셀)
