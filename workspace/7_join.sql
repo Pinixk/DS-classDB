@@ -26,4 +26,3 @@ select eno, ename, dno, dname, loc, cityname
 from employee
 natural join department 
 natural join loc; 
-
