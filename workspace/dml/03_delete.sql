@@ -1,0 +1,1 @@
+delete dept2 where dno = 90;
