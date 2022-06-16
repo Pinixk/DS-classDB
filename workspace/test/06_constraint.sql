@@ -8,7 +8,8 @@ select * from user_objects where object_name = 'MY_DEP_PK';
 select * from user_constraints;
 
 -- 3. emp_copy의 commission 컬럼에 0보다 큰 값만을 입렵하도록 제약조건 지정
-alter table emp_copy 
+create table emp_copy2 as select * from employee where 1=0;
+alter table emp_copy add constraint MY_EMP_COMMISSION check(commission>0) ;
 
 -- 4. dep_copy와 emp_copy의 외래키 cascade로 설정
 create table dep_copy as select * from department;
