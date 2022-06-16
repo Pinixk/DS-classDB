@@ -38,11 +38,22 @@ select ename, hiredate from employee where dno in
 select ename, e.dno, job from employee e, department d where e.dno=d.dno and d.loc=10; in (select loc from loc where cityname='BUSAN');
 
 -- 11. KING에게 보고하는 사원 표시
+select ename, salary from employee where manager =
+(select eno from employee where ename='KING');
 
 -- 12. 평균보다 많은 급여를 받고 이름에 M이 들어가는 사원과 같은 부서에 근무하는 사원 표시
+select eno, ename, salary from employee 
+where salary > (select round(avg(salary)) from employee) 
+and dno in (select dno from employee where ename like '%M%')
 
 -- 13. 담당업무가 ANALYST인 사원과 같은 부서의 사원 표시
+select * from employee where dno in
+(select distinct dno from employee where job='ANALYST')
 
 -- 14. 부서번호, 부서명, 부서별 인원수를 출력
+select dno, dname, (select count(dno) from employee where dno=d.dno) "부서별 인원수" from department d;
 
 -- 15. 각 근무 지역에 대해 근무지역명, 지역번호, 지역별 사원수, 지역별 평균 급여 출력
+select cityname, d.loc, count(eno), round(avg(salary))
+from employee e, department d, loc l
+where e.dno=d.dno and d.loc=l.loc group by cityname, d.loc;
