@@ -5,6 +5,7 @@ create table customer(
     PHONE varchar2(20),
     ADDRESS varchar2(100)
 );
+-- primary key column레벨 O, table 레벨 X
 
 -- 데이터 추가
 insert into customer(name, phone) values('KBJ','010-8977-3917');  -- null이 있으므로 작동X
