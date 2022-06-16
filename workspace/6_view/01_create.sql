@@ -20,3 +20,8 @@ select eno, ename, salary, salary*12 연봉 from emp;
 
 insert into "V_EMP_연봉" values(9999,'KBJ',5000, 5000*12);
 -- 'salary*12는 가상 column'임으로 작동 불가
+
+create view v_dno_sum as 
+select dno, sum(salary) 합, round(avg(salary)) 평균 
+from employee group by dno;
+-- 생성부터 가상 column임으로 insert 불가
