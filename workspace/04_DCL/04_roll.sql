@@ -15,13 +15,17 @@ grant MYROLE to user1;
 
 
 -- 권한 보기
--- 사용자가 가진 권한
+select * from user_role_privs;
+select * from role_sys_privs where role like 'MY%';
+select * from role_tab_privs where owner like '%SYS%'
+
+-- user1의 권한명 조회
 select * from dba_role_privs where GRANTEE = 'USER1';
 
--- 시스템이 가진 권한
+-- system role인 connect에 대한 새부내역 조회
 select * from dba_sys_privs where GRANTEE = 'CONNECT';
 
--- 내가 만든 권한
+-- 사용자 권한의 세부내역 조회
 select * from role_sys_privs role like 'MY%';
 
 
