@@ -3,7 +3,6 @@ select * from all_users order by username;
 select * from USER_users order by username;
 
 
-
 -- user 생성(root 서버로 가서)
 -- 11g 버전 까지
 create user user1 identified by 1234 default tablespace users;
@@ -32,14 +31,18 @@ grant select on user1.test to public; -- 모든 계정
 
 
 
+
 -- 권한 뺏기 
 revoke resource from user2;
+
 -- 다른 계정에 준 테이블 권한 뺏기
 revoke select on user1.test from user2;
 
 
 
---자신이 받은 권한 보기
+
+-- 권한 보기
+-- 자신이 받은 권한 보기
 select * from session_privs;
 
 

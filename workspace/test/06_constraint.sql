@@ -11,7 +11,11 @@ select * from user_constraints;
 create table emp_copy2 as select * from employee where 1=0;
 alter table emp_copy add constraint MY_EMP_COMMISSION check(commission>0) ;
 
+ALTER TABLE EMP_COPY ADD CONSTRAINT CK_EMP_COMMISION CHECK (COMMISSION > 0);
+INSERT INTO EMP_COPY(ENO, COMMISSION) VALUES(10, 10);
+select * from user_constraints where table_name='EMP_COPY';
+
 -- 4. dep_copy와 emp_copy의 외래키 cascade로 설정
-create table dep_copy as select * from department;
+create table dep_copy as select * from department where 1=0;
 alter table dep_copy add constraint my_dep_pk primary key(dno);
 alter table emp_copy add constraint my_emp_fk foreign key(dno) references dep_copy(dno) on delete CASCADE;
