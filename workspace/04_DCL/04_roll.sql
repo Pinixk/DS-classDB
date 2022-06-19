@@ -1,8 +1,3 @@
--- 찾기
-select * from user_role_privs;
-select * from role_sys_privs where role='MYROLL';
-
-
 -- 생성
 create role myrole;
 grant create session, create table, create synonym, 
@@ -18,6 +13,13 @@ grant MYROLE to user1;
 select * from user_role_privs;
 select * from role_sys_privs where role like 'MY%';
 select * from role_tab_privs where owner like '%SYS%'
+
+
+-- 찾기
+select * from user_role_privs;
+select * from role_sys_privs where role='MYROLL';
+
+
 
 -- user1의 권한명 조회
 select * from dba_role_privs where GRANTEE = 'USER1';

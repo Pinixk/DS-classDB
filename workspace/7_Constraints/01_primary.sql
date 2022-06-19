@@ -18,6 +18,7 @@ create table dept(
 ); 
 -- primary key column레벨 O, table 레벨 O
 
--- primary key 추가/삭제
-alter table dept add constraint pk_d1 primary key(dno);
-alter table dept drop constraint pk_d1;
+-- primary key 추가 / 이름 변경 / 삭제
+alter table dept add constraint PK_D1 primary key(dno);
+alter table dept rename constraint PK_D1 to PK_D2;
+alter table dept drop constraint PK_D2;

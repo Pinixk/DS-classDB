@@ -1,12 +1,17 @@
 -- 1. 모든 사원의 급여 최고액, 최저액, 총액 및 평균 급여를 출력하라.
-select to_char(sum(salary),'$9,999,999') as 총급여,to_char(avg(salary),'$9,999.0') as 평균급여,
- to_char(max(salary),'$9,999.0') as 최고액,to_char(min(salary),'$9,999.0') as 최저액
+select to_char(sum(salary),'$9,999,999') as 총급여,
+to_char(avg(salary),'$9,999.0') as 평균급여,
+to_char(max(salary),'$9,999.0') as 최고액,
+to_char(min(salary),'$9,999.0') as 최저액
 from employee;
 
 -- 2. 각 담당 업무 유형별로 급여 최고액, 최저액, 총액 및 평균액을 출력하시오.
-select job,to_char(sum(salary),'$9,999,999') as 총급여,to_char(avg(salary),'$9,999.0') as 평균급여,
- to_char(max(salary),'$9,999.0') as 최대급여,to_char(min(salary),'$9,999.0') as 최소급여,
- count(nvl(commission,0)) as 총인원 from employee group by job;
+select job,to_char(sum(salary),'$9,999,999') as 총급여,
+to_char(avg(salary),'$9,999.0') as 평균급여,
+to_char(max(salary),'$9,999.0') as 최대급여,
+to_char(min(salary),'$9,999.0') as 최소급여,
+count(nvl(commission,0)) as 총인원 
+from employee group by job;
 desc employee; 
 
 -- 3. count(*)함수를 이용하여 담당업무가 동일한 사원수를 출력하시오.
@@ -33,4 +38,4 @@ where e.dno=d.dno and d.loc=l.loc group by e.dno, d.dname, l.cityname;
 
 --9. 업무를 표시한 다음 해당 업무에 대해 부서번호별 부서명 및 부서 10,20,30의 급여 총액을 각각 출력하시오. 각 컬럼의 별칭은 각각 job, 부서 10, 부서 20, 부서 30, 총액으로 지정하시오.
 select job, e.dno, (select dname from department where dno=e.dno)dname, sum(salary) 
-from employee e group by job, dno order by job, dno;
+from employee e group by job, dno;
