@@ -9,9 +9,8 @@ select * from user_constraints;
 
 -- 3. emp_copy의 commission 컬럼에 0보다 큰 값만을 입렵하도록 제약조건 지정
 create table emp_copy2 as select * from employee where 1=0;
-alter table emp_copy add constraint MY_EMP_COMMISSION check(commission>0) ;
+alter table emp_copy2 add constraint MY_EMP_COMMISSION check(commission>0) ;
 
-ALTER TABLE EMP_COPY ADD CONSTRAINT CK_EMP_COMMISION CHECK (COMMISSION > 0);
 INSERT INTO EMP_COPY(ENO, COMMISSION) VALUES(10, 10);
 select * from user_constraints where table_name='EMP_COPY';
 
