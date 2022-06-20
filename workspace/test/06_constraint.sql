@@ -16,5 +16,5 @@ select * from user_constraints where table_name='EMP_COPY';
 
 -- 4. dep_copy와 emp_copy의 외래키 cascade로 설정
 create table dep_copy as select * from department where 1=0;
-alter table dep_copy add constraint my_dep_pk primary key(dno);
-alter table emp_copy add constraint my_emp_fk foreign key(dno) references dep_copy(dno) on delete CASCADE;
+alter table emp_copy add constraint my_emp_fk foreign key(dno) 
+references dep_copy(dno) on delete CASCADE;
