@@ -1,3 +1,5 @@
+-- unique, not null 속성을 가짐
+
 create table dept(
     dno number(2) primary key,
     dname varchar2(14),
