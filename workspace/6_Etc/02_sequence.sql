@@ -1,6 +1,8 @@
 -- 생성
 create sequence EMP_SEQ increment by 1 start with 1; -- default
 create sequence EMP_SEQ increment by 10 start with 10;
+-- 반복
+alter sequence EMP_SEQ maxvalue 99999 cycle cache 5;
 
 -- 데이터 추가
 insert into emp(eno, ename) values(emp_seq.nextval, 'KBJ');
